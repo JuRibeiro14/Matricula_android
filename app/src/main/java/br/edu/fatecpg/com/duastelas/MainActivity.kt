@@ -18,7 +18,6 @@ class MainActivity : AppCompatActivity() {
         buttonProximo.setOnClickListener {
             val nomeAluno = editTextNome.text.toString()
 
-            // Passando o nome para a próxima tela
             val intent = Intent(this, MatriculaActivity::class.java)
             intent.putExtra("NOME_ALUNO", nomeAluno)
             startActivity(intent)
