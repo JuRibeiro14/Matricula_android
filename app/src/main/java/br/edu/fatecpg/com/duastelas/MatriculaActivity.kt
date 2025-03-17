@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import br.edu.fatecpg.com.duastelas.dao.UserDao
+import br.edu.fatecpg.com.duastelas.model.User
 import java.util.*
 
 class MatriculaActivity : AppCompatActivity() {
@@ -21,6 +23,9 @@ class MatriculaActivity : AppCompatActivity() {
         buttonGerarMatricula.setOnClickListener {
             val matricula = gerarMatriculaAleatoria()
             textViewNomeMatricula.text = "Aluno: $nomeAluno\nMatrícula: $matricula"
+
+            val usuario = User(nome = nomeAluno ?: "Nome Desconhecido", matricula = matricula)
+            UserDao.definirUsuario(usuario)
         }
     }
 
